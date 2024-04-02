@@ -1,0 +1,140 @@
+﻿@model ShoesECommerceApp.Models.User
+
+@{
+    ViewData["Title"] = "Register";
+}
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        background-color: #f8f9fa; /* Background color similar to the login form */
+        background-image: url('https://cdn.pixabay.com/photo/2016/10/16/17/14/baby-shoes-1745844_640.jpg');
+        background-size: cover;
+        background-position: center;
+        position: relative;
+    }
+
+    .navbar {
+        position: absolute;
+        top: 10px; /* Adjust as needed */
+        right: 10px; /* Adjust as needed */
+        background-color: rgba(288, 300, 350, 0.9);
+        padding: 10px 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    form{
+        width :300px;
+        margin-left:30px;
+    }
+
+    .form-container {
+        background-color: rgba(255, 255, 255, 0.8);
+       
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        max-width: 400px;
+        width: 800px;
+       /*  text-align: center; */
+        margin-right: 80px;
+        margin-bottom: 20px;
+        margin-top: 180px; /* Add margin-top here */
+
+
+    }
+
+        .form-container h1{
+            text-align:center;
+        }
+
+        /* .form-container h1 {
+            margin-bottom: 20px;
+            font-size: 24px;
+        } */
+
+    .form-group {
+        margin-bottom: 10px;
+    }
+
+        .form-group label {
+            display: block;
+            text-align: left;
+            margin-bottom: 5px;
+            font-weight: bold;
+            margin-left: 20px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-left:20px;
+        }
+
+            .form-group input:focus {
+                outline: none;
+                border-color: #6c63ff;
+            }
+
+    .btn-primary {
+        background-color: #6c63ff;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+        .btn-primary:hover {
+            background-color: #564dff;
+        }
+</style>
+
+<div class="form-container">
+    <h1 class="mt-5">Register</h1>
+
+    <form asp-action="Register">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="Name" class="control-label">Name</label>
+            <input asp-for="Name" class="form-control" required />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Gender" class="control-label">Gender</label>
+            <input asp-for="Gender" class="form-control" required />
+            <span asp-validation-for="Gender" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Age" class="control-label">Age</label>
+            <input asp-for="Age" class="form-control" required />
+            <span asp-validation-for="Age" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Email" class="control-label">Email</label>
+            <input asp-for="Email" class="form-control" required />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Password" class="control-label">Password</label>
+            <input asp-for="Password" class="form-control" required />
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Create" class="btn btn-primary" />
+        </div>
+    </form>
+</div>
+
+<div>
+    <a asp-action="Login">Login Form</a>
+</div>

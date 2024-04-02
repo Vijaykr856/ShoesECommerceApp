@@ -1,0 +1,120 @@
+﻿@model ShoesECommerceApp.Models.Shoes
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<style>
+    body {
+        background-color: #f8f9fa;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        overflow: hidden; /* Disable scrolling */
+    }
+
+    .container {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: flex-end; /* Align to the right */
+        align-items: center;
+    }
+
+    .form-container {
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 40px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        max-width: 400px;
+        width: 100%;
+        text-align: center;
+        margin-right: 150px; /* Adjust margin as needed */
+        margin-bottom: 100px;
+    }
+
+        .form-container h1 {
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+        .form-group label {
+            display: block;
+            text-align: left;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+            .form-group input:focus {
+                outline: none;
+                border-color: #6c63ff;
+            }
+
+    .btn-primary {
+        background-color: #6c63ff;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+        .btn-primary:hover {
+            background-color: #564dff;
+        }
+
+    .text-danger {
+        color: #dc3545;
+    }
+
+    .back-link {
+        display: block;
+        text-align: center;
+        margin-top: 20px;
+    }
+</style>
+
+<div class="container">
+    <div class="form-container">
+        <h1>Create</h1>
+
+        <form asp-action="CreateData" asp-controller="Shoes" enctype="multipart/form-data" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Shoessize" class="control-label">Shoe Size</label>
+                <input asp-for="Shoessize" class="form-control" />
+                <span asp-validation-for="Shoessize" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Shoesbrand" class="control-label">Shoe Brand</label>
+                <input asp-for="Shoesbrand" class="form-control" />
+                <span asp-validation-for="Shoesbrand" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Shoesprice" class="control-label">Price</label>
+                <input asp-for="Shoesprice" class="form-control" />
+                <span asp-validation-for="Shoesprice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Shoespic" class="control-label">Image</label>
+                <input asp-for="Shoespic" type="file" class="form-control" />
+                <span asp-validation-for="Shoespic" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,129 @@
+﻿@model ShoesECommerceApp.Models.User
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        background-image: url('https://cdn.pixabay.com/photo/2015/10/09/17/54/boy-979681_1280.jpg');
+        background-size: cover;
+        background-position: center;
+        position: relative;
+    }
+    .navbar {
+        position: absolute;
+        top: 10px; /* Adjust as needed */
+        right: 10px; /* Adjust as needed */
+        background-color: rgba(288, 300, 350, 0.9);
+        padding: 10px 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .login-container {
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 40px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        max-width: 400px;
+        width: 100%;
+        text-align: center;
+        margin-right: 150px; 
+        margin-bottom: 100px;
+      
+    }
+
+        .login-container h1 {
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+        .form-group label {
+            display: block;
+            text-align: left;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+            .form-group input:focus {
+                outline: none;
+                border-color: #6c63ff;
+            }
+
+    .btn-primary {
+        background-color: #6c63ff;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+        .btn-primary:hover {
+            background-color: #564dff;
+        }
+
+    .form-footer {
+        margin-top: 20px;
+        font-size: 14px;
+    }
+</style>
+
+<div class="login-container">
+    <h1>Login</h1>
+
+    @{
+        if (ViewBag.Message != null)
+        {
+            <p style="color:red;">@ViewBag.Message</p>
+        }
+        if (TempData["Success"] != null)
+        {
+            <p style="color:lawngreen;">@TempData["Success"]</p>
+        }
+    }
+
+    <form asp-action="Login">
+        <div class="form-group">
+            <label for="Email">Email</label>
+            <input type="email" id="Email" name="Email" class="form-control" required />
+        </div>
+        <div class="form-group">
+            <label for="Password">Password</label>
+            <input type="password" id="Password" name="Password" class="form-control" required />
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Login" class="btn btn-primary" />
+        </div>
+    </form>
+
+    <div class="form-footer">
+        <p>Not Registered yet? <a asp-controller="Shoes" asp-action="Register">Sign up here</a></p>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

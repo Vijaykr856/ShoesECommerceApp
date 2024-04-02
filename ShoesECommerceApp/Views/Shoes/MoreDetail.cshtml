@@ -1,0 +1,81 @@
+﻿    @model IEnumerable<ShoesECommerceApp.Models.Shoes>
+
+    @{
+        ViewData["Title"] = "MoreDetail";
+    }
+
+    <body>
+
+        <h1>Best Shoes</h1>
+
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-6">
+                    <div class="image-part">
+                        <img src="data:image/png;base64,@Convert.ToBase64String(item.Shoespic)" alt="Product Image" style="height: 440px; width: 500px; margin-top:8px;">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="details-part">
+                        <p>@Html.DisplayNameFor(model => item.Id): @Html.DisplayFor(modelItem => item.Shoessize)</p>
+                        <p>@Html.DisplayNameFor(model => item.Shoessize): @Html.DisplayFor(modelItem => item.Shoessize)</p>
+                        <p>@Html.DisplayNameFor(model => item.Shoesbrand): @Html.DisplayFor(modelItem => item.Shoesbrand)</p>
+                        <p>@Html.DisplayNameFor(model => item.Shoesprice): @Html.DisplayFor(modelItem => item.Shoesprice)</p>
+
+                    
+                        <a class="btn btn-primary" href="#" onclick="showForm('@item.Id')">Buy Now</a>
+
+                
+                        <div id="form-@item.Id" style="display: none;">
+                            <form id="purchaseForm-@item.Id" method="post" action="/Shoes/BuyNowInNewTab" target="_blank">
+                                <input type="hidden" name="shoeId" value="@item.Id" />
+                            
+                                <input type="text" name="name" placeholder="Name" required />
+                                <input type="text" name="email" placeholder="Email" required />
+
+                                <a href="/Shoes/UserDetails" class="btn btn-primary">Submit</a>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+        <style>
+       
+            .details-part {
+                padding: 20px;
+                background-color: #f8f9fa;
+                border-radius: 5px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            }
+
+                .details-part p {
+                    margin-bottom: 10px;
+                    font-size: 50px;
+                    color: #333;
+                }
+
+                    .details-part p:first-child {
+                        font-weight: bold;
+                        color: #0069d9;
+                    }
+
+            h1 {
+                font-size: 50px;
+                font-weight: bold;
+                margin-bottom: 20px;
+                color: #333;
+            }
+        </style>
+
+        <script>
+        
+            function showForm(shoeId) {
+                var formId = "form-" + shoeId;
+                document.getElementById(formId).style.display = "block";
+            }
+        </script>
+
+    </body>

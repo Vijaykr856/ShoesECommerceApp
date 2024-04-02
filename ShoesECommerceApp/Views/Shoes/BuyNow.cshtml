@@ -1,0 +1,38 @@
+﻿@model ShoesECommerceApp.Models.Shoes
+
+@{
+    ViewData["Title"] = "BuyNow";
+}
+
+<h1>BuyNow</h1>
+
+<div>
+    <h4>Shoes</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Shoessize)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Shoessize)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Shoesbrand)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Shoesbrand)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Shoesprice)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Shoesprice)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Shoespic)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Shoespic)
+        </dd>
+    </dl>
+</div>
